@@ -1,6 +1,10 @@
+# Created by https://www.gitignore.io/api/python,django
+
+### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
 # C extensions
 *.so
@@ -55,3 +59,23 @@ docs/_build/
 
 # PyBuilder
 target/
+
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# SQLite3 database files:
+*.db
+db.*
+
+.idea/.name
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/wots.iml
+.idea/scopes/scope_settings.xml
