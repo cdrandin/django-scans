@@ -13,10 +13,13 @@ Quick start
     )
 
 2. Include 
-	url(r'^django_scans/', include('django_scans.urls')),
 
-	into your root project's urls.py inside urlpatterns
+	urlpatterns = patterns('',
+	    url(r'^django_scans/', include('django_scans.urls')),
+	)
 
+	into your root project's(not the app) urls.py inside urlpatterns
+	(or anywhere if you want)
 
 3. Run `python manage.py makemigrations django_scans` to create scan table
 
@@ -27,7 +30,7 @@ Quick start
 
    -----
    [] is optional
-   
+
    SECRET_SCAN_KEY can be retrieved by 
    `from django_scans.settings import SECRET_SCAN_KEY`
 
