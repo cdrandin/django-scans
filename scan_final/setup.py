@@ -11,6 +11,7 @@ setup(
     name='django_scans',
     version='0.1',
     packages=['django_scans'],
+    install_requires = ['django-jsonfield==0.9.15'],
     include_package_data=True,
     # license='',  # example license
     description='A simple Django app that manages simple scan based systems.',
