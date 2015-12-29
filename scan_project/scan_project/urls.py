@@ -7,5 +7,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^django_scans/', include('django_scans.url')),
+    url(r'^django_scans/', include('django_scans.urls')),
 )
