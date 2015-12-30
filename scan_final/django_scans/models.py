@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from jsonfield import JSONField
 
 import datetime
+from django.utils import timezone
 import collections
 import json
 
@@ -18,7 +19,7 @@ class Scan(models.Model):
 
     def save(self, *args, **kwargs):
         # First time ONLY
-        if not self.pk:
+        if not self.last_scan_datetime:
             if self.scan_id is None or self.scan_id == '':
                 raise Exception("scan_id cannot be empty")
 
@@ -26,10 +27,11 @@ class Scan(models.Model):
                 if type(self.meta_data) is str:
                     self.meta_data = json.loads(self.meta_data)
 
+        self.last_scan_datetime = timezone.now()
         super(Scan, self).save(*args, **kwargs)
 
     def update_last_scan_datetime(self):
-        self.last_scan_datetime = datetime.datetime.now()
+        self.last_scan_datetime = timezone.now()
         self.save()
 
     #

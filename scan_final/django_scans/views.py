@@ -32,7 +32,7 @@ def scan(request):
 
                 scan = Scan.objects.create(
                     scan_id=request.POST['scan_id_input'], meta_data=meta_data)
-                scan.update_last_scan_datetime()
+                scan.save()
                 payload['status'] = 'ok'
         else:
             payload['reason'] = 'Missing post field "scan_id_input".'
@@ -64,7 +64,7 @@ def scan_csrf_exempt(request):
 
                     scan = Scan.objects.create(
                         scan_id=request.POST['scan_id_input'], meta_data=meta_data)
-                    scan.update_last_scan_datetime()
+                    scan.save()
                     payload['status'] = 'ok'
             else:
                 payload['reason'] = 'Missing post field "scan_id_input".'
